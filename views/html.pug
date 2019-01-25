@@ -1,0 +1,21 @@
+html
+    head
+        title brwosing directory
+        script(src="http://localhost:3000/socket.io/socket.io.js")
+        script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
+    body
+        ul(id="nacho" name="")
+            each f in file
+                li 
+                    a(id = f href= "/a" ) #{f}
+    
+    script.
+        var sockets = io.connect('http://localhost:3000');
+        $(document).ready( function() {
+            var id = $('#nacho li a').click(function() {
+                var r=this.id;
+                console.log(r);
+                sockets.emit('link',{message:r})
+            })
+        });
+    
