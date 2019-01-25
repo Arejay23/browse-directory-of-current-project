@@ -1,0 +1,1 @@
+# browse-directory-of-current-project
